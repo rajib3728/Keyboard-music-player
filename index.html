@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard music player</title>
+    <link rel="shortcut icon" type="image/png" href="logo1.png">
+    <style>
+     body {
+            background-image: url('img1.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;  
+            background-size: cover;
+          }
+    .st1
+    {
+        color:yellow;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .st2
+    {
+  
+    width: 670px;
+    height:300px;
+    background-color: rgba(255, 255, 255, 0.882);
+    border-radius: 20px;
+    margin-top: 50px;
+    }
+.st3
+{
+    width:20px;
+    height:20px;
+    padding: 10px;
+    box-shadow: 8px 8px 3px grey;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 4px;
+    margin-right: 4px;
+    background-color: whitesmoke;
+}
+.st4
+{
+   width: 45%;
+   height:200px;
+
+}
+
+#stopwatch-container {
+    width: 600px;
+    margin: 10% auto;
+    padding: 5% 0;
+    color: #e7eafb;
+    text-align: center;
+    background-color: #202020;
+    box-shadow: 1px 0px 4px 2px #9c9a9a;
+    border-radius: 20px;
+
+}
+ 
+#stopwatch {
+    font-size: 100px;
+    margin-bottom: 10px;
+}
+ 
+button {
+    width: 100px;
+    height: 30px;
+    background-color: #202020;
+    color: white;
+    border-radius: 6px;
+    border: 2px solid #fff;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+ 
+button:hover {
+    background-color: #fff;
+    color: #202020;
+    cursor: pointer;
+}
+.st5
+{
+    width:200px;
+    height:auto;
+    background-color: #fff;
+    color:black;
+}
+
+
+
+
+.playing {
+  position: fixed;
+  top: 70%;
+  left: 50%;
+  width: auto;
+  transform: translateX(-50%) translateY(100%);
+}
+.playing:after {
+  content: "Now Playing.";
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+.now.playing .bar {
+  display: inline-block;
+  position: relative;
+  margin-right: 1px;
+  width: 10px;
+  height: 1px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #ff9500, #4eff3a);
+  color: transparent;
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+.paused.playing .bar {
+  animation-iteration-count: 1;
+}
+.paused.playing:after {
+  content: "Paused (Lame)"
+}
+.n1 {
+  animation-delay: 0.5s;
+}
+.n2 {
+  animation-delay: 0.2s;
+}
+.n3 {
+  animation-delay: 1.2s;
+}
+.n4 {
+  animation-delay: 0.9s;
+}
+.n5 {
+  animation-delay: 2.3s;
+}
+.n6 {
+  animation-delay: 1.3s;
+}
+.n7 {
+  animation-delay: 3.1s;
+}
+.n8 {
+  animation-delay: 1.9s;
+}
+@keyframes pulse {
+  0% {
+    height: 1px;
+    margin-top: 0;
+  }
+  10% {
+    height: 40px;
+    margin-top: -40px;
+  }
+  50% {
+    height: 20px;
+    margin-top: -20px;
+  }
+  60% {
+    height: 30px;
+    margin-top: -30px;
+  }
+  80% {
+    height: 60px;
+    margin-top: -60px;
+  }
+  100% {
+    height: 1px;
+    margin-top: 0;
+  }
+}
+
+
+
+
+
+
+</style>
+</head>
+<body>
+   
+   <audio src="song1.wav" class="ply" controls hidden></audio>
+   <audio src="song2.wav" class="ply" controls hidden></audio>
+   <audio src="song3.wav" class="ply" controls hidden></audio>
+   <audio src="song4.wav" class="ply" controls hidden></audio>
+   <audio src="song5.wav" class="ply" controls hidden></audio>
+   <audio src="song6.mp3" class="ply" controls hidden></audio>
+   <audio src="song7.mp3" class="ply" controls hidden></audio>
+   <audio src="song8.mp3" class="ply" controls hidden></audio>
+   <audio src="song9.mp3" class="ply" controls hidden></audio>
+   <audio src="song10.mp3" class="ply" controls hidden></audio>
+   <audio src="song11.mp3" class="ply" controls hidden></audio>
+   <audio src="song12.mp3" class="ply" controls hidden></audio>
+   <audio src="song13.mp3" class="ply" controls hidden></audio>
+   <audio src="song14.mp3" class="ply" controls hidden></audio>
+   <audio src="song15.mp3" class="ply" controls hidden></audio>
+   <audio src="song16.mp3" class="ply" controls hidden></audio>
+   <audio src="song17.mp3" class="ply" controls hidden></audio>
+   <audio src="song18.mp3" class="ply" controls hidden></audio>
+   <audio src="song19.mp3" class="ply" controls hidden></audio>
+   <audio src="song20.mp3" class="ply" controls hidden></audio>
+   <audio src="song21.mp3" class="ply" controls hidden></audio>
+   <audio src="song22.mp3" class="ply" controls hidden></audio>
+   <audio src="song23.mp3" class="ply" controls hidden></audio>
+   <audio src="song24.mp3" class="ply" controls hidden></audio>
+   <audio src="song25.mp3" class="ply" controls hidden></audio>
+   <audio src="song26.mp3" class="ply" controls hidden></audio>
+   <audio src="song27.mp3" class="ply" controls hidden></audio>
+   <audio src="song28.mp3" class="ply" controls hidden></audio>
+   <audio src="song29.mp3" class="ply" controls hidden></audio>
+   <audio src="song30.mp3" class="ply" controls hidden></audio>
+   <audio src="song31.mp3" class="ply" controls hidden></audio>
+   <audio src="song33.mp3" class="ply" controls hidden></audio>
+   <audio src="song34.mp3" class="ply" controls hidden></audio>
+   <audio src="song35.mp3" class="ply" controls hidden></audio>
+   <audio src="song36.mp3" class="ply" controls hidden></audio>
+
+    <center>
+        <h1 class="st1">Keyboard music player</h1>
+       
+      
+    <div class="st2">
+        <table>
+            
+        <tr>
+            <td><div class="st3">A</div></td>
+            <td><div class="st3">B</div></td>
+            <td><div class="st3">C</div></td>
+            <td><div class="st3">D</div></td>
+            <td><div class="st3">E</div></td>
+            <td><div class="st3">F</div></td>
+            <td><div class="st3">G</div></td>
+            <td><div class="st3">H</div></td>
+            <td><div class="st3">I</div></td>
+            <td><div class="st3">J</div></td>
+            <td><div class="st3">K</div></td>
+        </tr>
+        <tr>
+            <td><div class="st3">L</div></td>
+            <td><div class="st3">M</div></td>
+            <td><div class="st3">N</div></td>
+            <td><div class="st3">O</div></td>
+            <td><div class="st3">P</div></td>
+            <td><div class="st3">Q</div></td>
+            <td><div class="st3">R</div></td>
+            <td><div class="st3">S</div></td>
+            <td><div class="st3">T</div></td>
+            <td><div class="st3">U</div></td>
+            <td><div class="st3">V</div></td>
+        </tr>
+        <tr>
+            <td><div class="st3">W</div></td>
+            <td><div class="st3">X</div></td>
+            <td><div class="st3">Y</div></td>
+            <td><div class="st3">Z</div></td>  
+        </tr>
+        <tr>
+            <td><div class="st3">0</div></td>
+            <td><div class="st3">1</div></td>
+            <td><div class="st3">2</div></td>
+            <td><div class="st3">3</div></td>
+            <td><div class="st3">4</div></td>
+            <td><div class="st3">5</div></td>
+            <td><div class="st3">6</div></td>
+            <td><div class="st3">7</div></td>
+            <td><div class="st3">8</div></td>
+            <td><div class="st3">9</div></td>
+        </tr>
+        </table>
+        </div>
+
+
+        <div class="now playing" id="music">
+  <span class="bar n1">A</span>
+  <span class="bar n2">B</span>
+  <span class="bar n3">c</span>
+  <span class="bar n4">D</span>
+  <span class="bar n5">E</span>
+  <span class="bar n6">F</span>
+  <span class="bar n7">G</span>
+  <span class="bar n8">H</span>
+</div>
+
+
+    </center>
+   
+   <script>
+    function hello()
+       {
+        var m=document.getElementsByClassName("st3");
+        var i;
+        for (i = 0; i < m.length; i++) {
+          m[i].style.backgroundColor= "whitesmoke";
+         }
+         
+       }
+
+
+      
+
+    function colorchanger()
+        {
+        var randomColor = "#"+Math.floor(Math.random()*16777215).toString(16);
+        return randomColor
+        }
+        setInterval(colorchanger,1000);
+
+
+    var randomColor = "#"+Math.floor(Math.random()*16777215).toString(16);
+    var n=document.getElementsByClassName("ply")
+    window.addEventListener("keydown",(event)=>{
+    if(event.key=='a' || event.key=='A'){
+        n[0].play();
+        toggle();
+        document.getElementsByClassName("st3")[0].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='b' || event.key=='B'){
+        n[1].play();
+        toggle();
+        document.getElementsByClassName("st3")[1].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='C' || event.key=='c'){
+        n[2].play();
+        toggle();
+        document.getElementsByClassName("st3")[2].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='d' || event.key=='D'){
+        n[3].play();
+        toggle();
+        document.getElementsByClassName("st3")[3].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='E' || event.key=='e'){
+        n[4].play();
+        toggle();
+        document.getElementsByClassName("st3")[4].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='f' || event.key=='F'){
+        n[5].play();
+        toggle();
+        document.getElementsByClassName("st3")[5].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='G' || event.key=='g'){
+        n[6].play();
+        toggle();
+        document.getElementsByClassName("st3")[6].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='h' || event.key=='H'){
+        n[7].play();
+        toggle();
+        document.getElementsByClassName("st3")[7].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='I' || event.key=='i'){
+        n[8].play();
+        toggle();
+        document.getElementsByClassName("st3")[8].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='j' || event.key=='J'){
+        n[9].play();
+        toggle();
+        document.getElementsByClassName("st3")[9].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='K' || event.key=='k'){
+        n[10].play();
+        toggle();
+        document.getElementsByClassName("st3")[10].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='l' || event.key=='L'){
+        n[11].play();
+        toggle();
+        document.getElementsByClassName("st3")[11].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='M' || event.key=='m'){
+        n[12].play();
+        toggle();
+        document.getElementsByClassName("st3")[12].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='n' || event.key=='N'){
+        n[13].play();
+        toggle();
+        document.getElementsByClassName("st3")[13].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='O' || event.key=='o'){
+        n[14].play();
+        toggle();
+        document.getElementsByClassName("st3")[14].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='p' || event.key=='P'){
+        n[15].play();
+        toggle();
+        document.getElementsByClassName("st3")[15].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='Q' || event.key=='q'){
+        n[16].play();
+        toggle();
+        document.getElementsByClassName("st3")[16].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='r' || event.key=='R'){
+        n[17].play();
+        toggle();
+        document.getElementsByClassName("st3")[17].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='s' || event.key=='S'){
+        n[18].play();
+        toggle();
+        document.getElementsByClassName("st3")[18].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='T' || event.key=='t'){
+        n[19].play();
+        toggle();
+        document.getElementsByClassName("st3")[19].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='u' || event.key=='U'){
+        n[20].play();
+        toggle();
+        document.getElementsByClassName("st3")[20].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='V' || event.key=='v'){
+        n[21].play();
+        toggle();
+        document.getElementsByClassName("st3")[21].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='W' || event.key=='w'){
+        n[22].play();
+        toggle();
+        document.getElementsByClassName("st3")[22].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='x' || event.key=='X'){
+        n[23].play();
+        toggle();
+        document.getElementsByClassName("st3")[23].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='y' || event.key=='Y'){
+        n[24].play();
+        toggle();
+        document.getElementsByClassName("st3")[24].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key=='z' || event.key=='Z'){
+        n[25].play();
+        toggle();
+        document.getElementsByClassName("st3")[25].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key==0 && event.key!=="Backspace"){
+        n[26].play();
+        toggle();
+        document.getElementsByClassName("st3")[26].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key==1){
+        n[27].play();
+        toggle();
+        document.getElementsByClassName("st3")[27].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key==2){
+        n[28].play();
+        toggle();
+        document.getElementsByClassName("st3")[28].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key==3){
+        n[29].play();
+        toggle();
+        document.getElementsByClassName("st3")[29].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key==4){
+        n[30].play();
+        toggle();
+        document.getElementsByClassName("st3")[30].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key==5){
+        n[31].play();
+        toggle();
+        document.getElementsByClassName("st3")[31].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key==6){
+        n[32].play();
+        toggle();
+        document.getElementsByClassName("st3")[32].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key==7){
+        n[33].play();
+        toggle();
+        document.getElementsByClassName("st3")[33].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key==8){
+        n[34].play();
+        toggle();
+        document.getElementsByClassName("st3")[34].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+    else if(event.key==9){
+        n[35].play();
+        toggle();
+        document.getElementsByClassName("st3")[35].style.backgroundColor=colorchanger();
+        setTimeout(hello,300);
+    }
+}
+
+
+
+
+)
+
+
+function toggle(button) {
+  var player = document.getElementById("music");
+  player.classList.toggle("paused");
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+   </script> 
+</body>
+</html>
